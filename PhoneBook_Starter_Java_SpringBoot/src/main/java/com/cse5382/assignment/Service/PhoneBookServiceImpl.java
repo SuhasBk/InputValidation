@@ -19,26 +19,25 @@ public class PhoneBookServiceImpl implements PhoneBookService{
     private static final Logger LOGGER = LoggerFactory.getLogger(PhoneBookServiceImpl.class);
     @Override
     public List<PhoneBookEntry> list() {
-        return phoneBookRepository.findAll();
-        // return phoneBookRepository.list();
+        return phoneBookRepository.list();
     }
 
     @Override
     public void add(PhoneBookEntry phoneBookEntry) {
-        phoneBookRepository.save(phoneBookEntry);
-        // phoneBookRepository.save(phoneBookEntry.getName(),phoneBookEntry.getPhoneNumber());
+        // phoneBookRepository.save(phoneBookEntry);
+        phoneBookRepository.save(phoneBookEntry.getName(),phoneBookEntry.getPhoneNumber());
     }
 
     @Override
     public void deleteByName(String name) {
-        phoneBookRepository.deleteById(name);
-        // phoneBookRepository.deleteByName(name);
+        // phoneBookRepository.deleteById(name);
+        phoneBookRepository.deleteByName(name);
     }
 
 
     @Override
     public void deleteByNumber(String phoneNumber) {
-        phoneBookRepository.deleteByPhoneNumber(phoneNumber);
-        // phoneBookRepository.deleteByNumber(phoneNumber);
+        // phoneBookRepository.deleteByPhoneNumber(phoneNumber);
+        phoneBookRepository.deleteByNumber(phoneNumber);
     }
 }
