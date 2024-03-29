@@ -14,6 +14,7 @@ import org.springframework.core.env.Environment;
 // @ComponentScan({"com.cse5382.assignment.Controller", "com.cse5382.assignment.Model", "com.cse5382.assignment.Service", "com.cse5382.assignment.Repository"})
 public class AssignmentApplication {
 
+
 	@Autowired Environment env;
 
 	// @Bean
