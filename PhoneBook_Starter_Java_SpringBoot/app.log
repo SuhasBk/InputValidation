@@ -1,0 +1,34 @@
+2024-03-23 06:34:42,363 - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cse5382.assignment.AssignmentApplicationTests], using SpringBootContextLoader
+2024-03-23 06:34:42,380 - Could not detect default resource locations for test class [com.cse5382.assignment.AssignmentApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-03-23 06:34:42,393 - Could not detect default configuration classes for test class [com.cse5382.assignment.AssignmentApplicationTests]: AssignmentApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-03-23 06:34:42,796 - Found @SpringBootConfiguration com.cse5382.assignment.AssignmentApplication for test class com.cse5382.assignment.AssignmentApplicationTests
+2024-03-23 06:34:43,183 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2024-03-23 06:34:43,247 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@78f5c518, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2f48b3d2, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@34f7234e, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@753432a2, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@23bff419, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4983159f, org.springframework.test.context.transaction.TransactionalTestExecutionListener@44e3a2b2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@101639ae, org.springframework.test.context.event.EventPublishingTestExecutionListener@4c550889, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1d2bd371, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@44040454, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@65fe9e33, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@18bc345, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@42f8285e, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@26bab2f1]
+2024-03-23 06:34:44,020 - Starting AssignmentApplicationTests using Java 11.0.22 on 79c040e7497a with PID 2443 (started by vscode in /home/vscode/SP/assignment)
+2024-03-23 06:34:44,024 - No active profile set, falling back to 1 default profile: "default"
+2024-03-23 06:34:44,123 - HV000001: Hibernate Validator 6.2.3.Final
+2024-03-23 06:34:45,700 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-23 06:34:45,739 - Finished Spring Data repository scanning in 25 ms. Found 0 JPA repository interfaces.
+2024-03-23 06:34:53,855 - Started AssignmentApplicationTests in 10.507 seconds (JVM running for 13.095)
+2024-03-23 06:36:06,308 - HV000001: Hibernate Validator 6.2.3.Final
+2024-03-23 06:36:06,311 - Starting AssignmentApplication v0.0.1-SNAPSHOT using Java 11.0.22 on 79c040e7497a with PID 3307 (/home/vscode/SP/assignment/target/assignment-0.0.1-SNAPSHOT.jar started by vscode in /home/vscode/SP/assignment)
+2024-03-23 06:36:06,320 - No active profile set, falling back to 1 default profile: "default"
+2024-03-23 06:36:07,731 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-23 06:36:07,759 - Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+2024-03-23 06:36:08,476 - Tomcat initialized with port(s): 8080 (http)
+2024-03-23 06:36:08,491 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-23 06:36:08,492 - Starting service [Tomcat]
+2024-03-23 06:36:08,494 - Starting Servlet engine: [Apache Tomcat/9.0.63]
+2024-03-23 06:36:08,605 - Initializing Spring embedded WebApplicationContext
+2024-03-23 06:36:08,606 - Root WebApplicationContext: initialization completed in 2116 ms
+2024-03-23 06:36:09,207 - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-23 06:36:09,256 - Tomcat started on port(s): 8080 (http) with context path ''
+2024-03-23 06:36:09,275 - Started AssignmentApplication in 3.496 seconds (JVM running for 4.338)
+2024-03-23 06:36:16,683 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-23 06:36:16,684 - Initializing Servlet 'dispatcherServlet'
+2024-03-23 06:36:16,687 - Completed initialization in 2 ms
+2024-03-23 06:36:22,718 - HikariPool-1 - Starting...
+2024-03-23 06:36:22,923 - HikariPool-1 - Start completed.
+2024-03-23 06:44:35,662 - Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'application/x-www-form-urlencoded;charset=UTF-8' not supported]
+2024-03-23 06:48:29,596 - HikariPool-1 - Shutdown initiated...
+2024-03-23 06:48:29,650 - HikariPool-1 - Shutdown completed.
