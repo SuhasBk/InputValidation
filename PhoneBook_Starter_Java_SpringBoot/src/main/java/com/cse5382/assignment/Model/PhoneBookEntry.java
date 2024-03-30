@@ -2,88 +2,90 @@ package com.cse5382.assignment.Model;
 
 import java.util.Objects;
 
+import com.cse5382.assignment.Service.PhoneBookServiceImpl;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
+@DatabaseTable(tableName = "phonebook", daoClass = PhoneBookServiceImpl.class)
+public class PhoneBookEntry {
 
-import javax.persistence.*;
+    public static final String PHONE_NUMBER_FIELD_NAME = "phoneNumber";
+    public static final String NAME_FIELD_NAME = "name";
 
+    @DatabaseField(id = true, columnName = NAME_FIELD_NAME)
+    private String name = null;
 
+    @DatabaseField(unique = true, columnName = PHONE_NUMBER_FIELD_NAME)
+    private String phoneNumber = null;
 
-@Entity
-@Table(name="phonebook")
-public class PhoneBookEntry   {
+    public PhoneBookEntry() {
+    }
 
-  @Column
-  private String name = null;
+    public PhoneBookEntry(String name, String phoneNumber) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+    }
 
-
-  @Column
-  @Id
-  private String phoneNumber = null;
-
-  public PhoneBookEntry name(String name) {
-    this.name = name;
-    return this;
-  }
-
+    public PhoneBookEntry name(String name) {
+        this.name = name;
+        return this;
+    }
 
     public String getName() {
-    return name;
-  }
+        return name;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public PhoneBookEntry phoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
-    return this;
-  }
-
+    public PhoneBookEntry phoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+        return this;
+    }
 
     public String getPhoneNumber() {
-    return phoneNumber;
-  }
-
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+        return phoneNumber;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
-    PhoneBookEntry phoneBookEntry = (PhoneBookEntry) o;
-    return Objects.equals(this.name, phoneBookEntry.name) &&
-        Objects.equals(this.phoneNumber, phoneBookEntry.phoneNumber);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(name, phoneNumber);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PhoneBookEntry {\n");
-    
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        PhoneBookEntry phoneBookEntry = (PhoneBookEntry) o;
+        return Objects.equals(this.name, phoneBookEntry.name) &&
+                Objects.equals(this.phoneNumber, phoneBookEntry.phoneNumber);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, phoneNumber);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class PhoneBookEntry {\n");
+
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

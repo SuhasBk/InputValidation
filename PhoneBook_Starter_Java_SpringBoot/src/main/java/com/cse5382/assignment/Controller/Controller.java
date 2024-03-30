@@ -1,53 +1,51 @@
 package com.cse5382.assignment.Controller;
 
+import java.sql.SQLException;
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.cse5382.assignment.Model.PhoneBookEntry;
 import com.cse5382.assignment.Service.PhoneBookService;
 import com.cse5382.assignment.Service.PhoneBookServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import com.j256.ormlite.support.ConnectionSource;
 
 @RestController
 public class Controller {
 
-    @Autowired
     PhoneBookService phoneBookService;
 
+    public Controller(ConnectionSource connectionSource, PhoneBookServiceImpl phoneBookServiceImpl) throws SQLException {
+        this.phoneBookService = new PhoneBookServiceImpl(connectionSource);
+    }
+
     @GetMapping(path = "phoneBook/list")
-    public List<PhoneBookEntry> list(){
+    public List<PhoneBookEntry> list() throws Exception {
         return phoneBookService.list();
     }
 
     @PostMapping(path = "phoneBook/add")
-    public ResponseEntity<?> add(@RequestBody PhoneBookEntry phoneBookEntry){
-        try {
-            phoneBookService.add(phoneBookEntry);
-        }catch(Exception e){
-            return new ResponseEntity<Error>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity<?> add(@RequestBody PhoneBookEntry phoneBookEntry) throws Exception {
+        phoneBookService.add(phoneBookEntry);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping(path = "phoneBook/deleteByName")
-    public ResponseEntity<?> deleteByName(@RequestParam String name){
-        try {
-            phoneBookService.deleteByName(name);
-        }catch(Exception e){
-            return new ResponseEntity<Error>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity<?> deleteByName(@RequestParam String name) throws Exception {
+        phoneBookService.deleteByName(name);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping(path = "phoneBook/deleteByNumber")
-    public ResponseEntity<?> deleteByNumber(@RequestParam String number){
-        try {
-            phoneBookService.deleteByNumber(number);
-        }catch(Exception e){
-            return new ResponseEntity<Error>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity<?> deleteByNumber(@RequestParam String number) throws Exception {
+        phoneBookService.deleteByNumber(number);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
