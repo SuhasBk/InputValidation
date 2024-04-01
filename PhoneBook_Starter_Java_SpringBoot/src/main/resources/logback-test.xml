@@ -29,7 +29,7 @@
         <append>false</append>
     </appender>
 
-    <logger name="PhoneBookLogger" level="INFO" additivity="false">
+    <logger name="PhoneBookLogger" level="OFF" additivity="false">
         <appender-ref ref="Console" />
         <appender-ref ref="PhoneBookAudit" />
     </logger>

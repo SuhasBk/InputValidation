@@ -2,7 +2,11 @@ package com.cse5382.assignment.Model;
 
 import java.util.Objects;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 import com.cse5382.assignment.Service.PhoneBookServiceImpl;
+import com.cse5382.assignment.Util.AppConstants;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -13,10 +17,14 @@ public class PhoneBookEntry {
     public static final String NAME_FIELD_NAME = "name";
 
     @DatabaseField(id = true, columnName = NAME_FIELD_NAME)
-    private String name = null;
+    @NotNull
+    @Pattern(regexp = AppConstants.NAME_REGEX, message = "Please enter a valid name")
+    private String name;
 
-    @DatabaseField(unique = true, columnName = PHONE_NUMBER_FIELD_NAME)
-    private String phoneNumber = null;
+    @DatabaseField(unique = true, columnName = PHONE_NUMBER_FIELD_NAME, canBeNull = false)
+    @NotNull
+    @Pattern(regexp = AppConstants.PHONE_NUMBER_REGEX, message = "Please enter a valid phone number")
+    private String phoneNumber;
 
     public PhoneBookEntry() {
     }
