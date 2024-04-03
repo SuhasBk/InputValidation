@@ -66,3 +66,469 @@
 2024-04-01 00:02:24,994 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
 2024-04-01 00:02:25,072 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
 2024-04-01 00:02:25,153 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:53,021 - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cse5382.assignment.Controller.ControllerTest], using SpringBootContextLoader
+2024-04-03 10:55:53,026 - Could not detect default resource locations for test class [com.cse5382.assignment.Controller.ControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-04-03 10:55:53,026 - Could not detect default configuration classes for test class [com.cse5382.assignment.Controller.ControllerTest]: ControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-03 10:55:53,119 - Found @SpringBootConfiguration com.cse5382.assignment.AssignmentApplication for test class com.cse5382.assignment.Controller.ControllerTest
+2024-04-03 10:55:53,174 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener]
+2024-04-03 10:55:53,182 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@52d645b1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2101b44a, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2cc3ad05, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@710b18a6, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@119020fb, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3d9f6567, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@c055c54, org.springframework.test.context.event.EventPublishingTestExecutionListener@25e2ab5a, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@35e5d0e5, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@73173f63, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@55562aa9, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@655ef322, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7e276594, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3401a114, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@5066d65f]
+2024-04-03 10:55:53,428 - Starting ControllerTest using Java 11.0.22 on omega.uta.edu with PID 93618 (started by sxk7070 in /home/sxk7070/SP/InputValidation/PhoneBook_Starter_Java_SpringBoot)
+2024-04-03 10:55:53,429 - The following 1 profile is active: "test"
+2024-04-03 10:55:53,473 - HV000001: Hibernate Validator 6.2.3.Final
+2024-04-03 10:55:54,765 - creating table 'phonebook'
+2024-04-03 10:55:54,904 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `phonebook` (`name` VARCHAR(255) , `phoneNumber` VARCHAR(255) NOT NULL ,  UNIQUE (`phoneNumber`), PRIMARY KEY (`name`) ) 
+2024-04-03 10:55:54,906 - creating table 'users'
+2024-04-03 10:55:54,907 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `users` (`username` VARCHAR(255) , `password` VARCHAR(255) NOT NULL , `role` VARCHAR(255) DEFAULT 'R' NOT NULL , PRIMARY KEY (`username`) ) 
+2024-04-03 10:55:54,907 - clearing table 'users' with 'TRUNCATE TABLE `users`
+2024-04-03 10:55:55,278 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4eb63dc8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@402d6012, org.springframework.security.web.context.SecurityContextPersistenceFilter@15f2a43f, org.springframework.security.web.header.HeaderWriterFilter@e3ed455, org.springframework.security.web.authentication.logout.LogoutFilter@218df7d6, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@184de357, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69ce14e6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@57bdceaa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@395281c2, org.springframework.security.web.session.SessionManagementFilter@7f6b57f2, org.springframework.security.web.access.ExceptionTranslationFilter@4b508371, org.springframework.security.web.access.intercept.AuthorizationFilter@7e81617a]
+2024-04-03 10:55:55,921 - Initializing Spring TestDispatcherServlet ''
+2024-04-03 10:55:55,922 - Initializing Servlet ''
+2024-04-03 10:55:55,932 - Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-04-03 10:55:55,949 - Completed initialization in 27 ms
+2024-04-03 10:55:55,981 - Started ControllerTest in 2.774 seconds (JVM running for 3.548)
+2024-04-03 10:55:56,329 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:56,431 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:56,525 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:56,626 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:56,718 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:56,810 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:56,902 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:57,003 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:57,095 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:57,187 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:57,278 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:57,370 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:57,464 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:57,558 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:57,651 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:57,745 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:57,841 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:57,938 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:58,038 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:58,139 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:58,241 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:58,333 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:58,426 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:58,518 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:58,610 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:58,701 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:58,792 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:58,884 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:58,975 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:59,066 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:59,158 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:55:59,249 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:47,999 - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cse5382.assignment.Controller.ControllerTest], using SpringBootContextLoader
+2024-04-03 10:56:48,003 - Could not detect default resource locations for test class [com.cse5382.assignment.Controller.ControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-04-03 10:56:48,003 - Could not detect default configuration classes for test class [com.cse5382.assignment.Controller.ControllerTest]: ControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-03 10:56:48,089 - Found @SpringBootConfiguration com.cse5382.assignment.AssignmentApplication for test class com.cse5382.assignment.Controller.ControllerTest
+2024-04-03 10:56:48,145 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener]
+2024-04-03 10:56:48,154 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@52d645b1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2101b44a, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2cc3ad05, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@710b18a6, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@119020fb, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3d9f6567, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@c055c54, org.springframework.test.context.event.EventPublishingTestExecutionListener@25e2ab5a, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@35e5d0e5, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@73173f63, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@55562aa9, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@655ef322, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7e276594, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3401a114, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@5066d65f]
+2024-04-03 10:56:48,378 - Starting ControllerTest using Java 11.0.22 on omega.uta.edu with PID 93955 (started by sxk7070 in /home/sxk7070/SP/InputValidation/PhoneBook_Starter_Java_SpringBoot)
+2024-04-03 10:56:48,378 - The following 1 profile is active: "test"
+2024-04-03 10:56:48,408 - HV000001: Hibernate Validator 6.2.3.Final
+2024-04-03 10:56:49,659 - creating table 'phonebook'
+2024-04-03 10:56:49,797 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `phonebook` (`name` VARCHAR(255) , `phoneNumber` VARCHAR(255) NOT NULL ,  UNIQUE (`phoneNumber`), PRIMARY KEY (`name`) ) 
+2024-04-03 10:56:49,799 - creating table 'users'
+2024-04-03 10:56:49,800 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `users` (`username` VARCHAR(255) , `password` VARCHAR(255) NOT NULL , `role` VARCHAR(255) DEFAULT 'R' NOT NULL , PRIMARY KEY (`username`) ) 
+2024-04-03 10:56:49,800 - clearing table 'users' with 'TRUNCATE TABLE `users`
+2024-04-03 10:56:50,309 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6dcf7b6a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@53dba9cd, org.springframework.security.web.context.SecurityContextPersistenceFilter@52b32b70, org.springframework.security.web.header.HeaderWriterFilter@74707df8, org.springframework.security.web.authentication.logout.LogoutFilter@4be12f6c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@521ba38f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5e51ec2e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@69ce14e6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@247bbfba, org.springframework.security.web.session.SessionManagementFilter@16b76858, org.springframework.security.web.access.ExceptionTranslationFilter@3005623b, org.springframework.security.web.access.intercept.AuthorizationFilter@79604abe]
+2024-04-03 10:56:50,976 - Initializing Spring TestDispatcherServlet ''
+2024-04-03 10:56:50,976 - Initializing Servlet ''
+2024-04-03 10:56:50,982 - Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-04-03 10:56:50,999 - Completed initialization in 23 ms
+2024-04-03 10:56:51,031 - Started ControllerTest in 2.852 seconds (JVM running for 3.609)
+2024-04-03 10:56:51,320 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:51,418 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:51,513 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:51,616 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:51,710 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:51,802 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:51,893 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:51,994 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:52,086 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:52,177 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:52,268 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:52,365 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:52,457 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:52,549 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:52,641 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:52,735 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:52,826 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:52,918 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:53,012 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:53,105 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:53,198 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:53,291 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:53,387 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:53,480 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:53,574 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:53,667 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:53,761 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:53,860 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:53,954 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:54,046 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:54,141 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 10:56:54,234 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:14,908 - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cse5382.assignment.Controller.ControllerTest], using SpringBootContextLoader
+2024-04-03 11:03:14,911 - Could not detect default resource locations for test class [com.cse5382.assignment.Controller.ControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-04-03 11:03:14,912 - Could not detect default configuration classes for test class [com.cse5382.assignment.Controller.ControllerTest]: ControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-03 11:03:14,997 - Found @SpringBootConfiguration com.cse5382.assignment.AssignmentApplication for test class com.cse5382.assignment.Controller.ControllerTest
+2024-04-03 11:03:15,058 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener]
+2024-04-03 11:03:15,067 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@52d645b1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2101b44a, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2cc3ad05, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@710b18a6, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@119020fb, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3d9f6567, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@c055c54, org.springframework.test.context.event.EventPublishingTestExecutionListener@25e2ab5a, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@35e5d0e5, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@73173f63, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@55562aa9, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@655ef322, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7e276594, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3401a114, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@5066d65f]
+2024-04-03 11:03:15,294 - Starting ControllerTest using Java 11.0.22 on omega.uta.edu with PID 96195 (started by sxk7070 in /home/sxk7070/SP/InputValidation/PhoneBook_Starter_Java_SpringBoot)
+2024-04-03 11:03:15,295 - The following 1 profile is active: "test"
+2024-04-03 11:03:15,325 - HV000001: Hibernate Validator 6.2.3.Final
+2024-04-03 11:03:16,710 - creating table 'phonebook'
+2024-04-03 11:03:16,852 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `phonebook` (`name` VARCHAR(255) , `phoneNumber` VARCHAR(255) NOT NULL ,  UNIQUE (`phoneNumber`), PRIMARY KEY (`name`) ) 
+2024-04-03 11:03:16,854 - creating table 'users'
+2024-04-03 11:03:16,855 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `users` (`username` VARCHAR(255) , `password` VARCHAR(255) NOT NULL , `role` VARCHAR(255) DEFAULT 'R' NOT NULL , PRIMARY KEY (`username`) ) 
+2024-04-03 11:03:16,856 - clearing table 'users' with 'TRUNCATE TABLE `users`
+2024-04-03 11:03:17,237 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@395281c2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@41d20f06, org.springframework.security.web.context.SecurityContextPersistenceFilter@382faf51, org.springframework.security.web.header.HeaderWriterFilter@606d6d2c, org.springframework.security.web.authentication.logout.LogoutFilter@55053f81, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6dcf7b6a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b5de9ac, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36e409e0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e753289, org.springframework.security.web.session.SessionManagementFilter@52b32b70, org.springframework.security.web.access.ExceptionTranslationFilter@21f50d2c, org.springframework.security.web.access.intercept.AuthorizationFilter@3e28dc96]
+2024-04-03 11:03:17,869 - Initializing Spring TestDispatcherServlet ''
+2024-04-03 11:03:17,870 - Initializing Servlet ''
+2024-04-03 11:03:17,876 - Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-04-03 11:03:17,892 - Completed initialization in 22 ms
+2024-04-03 11:03:17,923 - Started ControllerTest in 2.832 seconds (JVM running for 3.6)
+2024-04-03 11:03:18,258 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:18,357 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:18,450 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:18,552 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:18,644 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:18,736 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:18,827 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:18,927 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:19,019 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:19,110 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:19,203 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:19,311 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:19,416 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:19,515 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:19,609 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:19,702 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:19,797 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:19,895 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:19,997 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:20,096 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:20,188 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:20,280 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:20,374 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:20,478 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:20,570 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:20,663 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:20,755 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:20,847 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:20,939 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:21,031 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:21,123 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:03:21,216 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:24,811 - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cse5382.assignment.Controller.ControllerTest], using SpringBootContextLoader
+2024-04-03 11:04:24,816 - Could not detect default resource locations for test class [com.cse5382.assignment.Controller.ControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-04-03 11:04:24,816 - Could not detect default configuration classes for test class [com.cse5382.assignment.Controller.ControllerTest]: ControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-03 11:04:24,909 - Found @SpringBootConfiguration com.cse5382.assignment.AssignmentApplication for test class com.cse5382.assignment.Controller.ControllerTest
+2024-04-03 11:04:24,970 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener]
+2024-04-03 11:04:24,979 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@52d645b1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2101b44a, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2cc3ad05, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@710b18a6, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@119020fb, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3d9f6567, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@c055c54, org.springframework.test.context.event.EventPublishingTestExecutionListener@25e2ab5a, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@35e5d0e5, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@73173f63, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@55562aa9, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@655ef322, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7e276594, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3401a114, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@5066d65f]
+2024-04-03 11:04:25,206 - Starting ControllerTest using Java 11.0.22 on omega.uta.edu with PID 96605 (started by sxk7070 in /home/sxk7070/SP/InputValidation/PhoneBook_Starter_Java_SpringBoot)
+2024-04-03 11:04:25,206 - The following 1 profile is active: "test"
+2024-04-03 11:04:25,233 - HV000001: Hibernate Validator 6.2.3.Final
+2024-04-03 11:04:26,633 - creating table 'phonebook'
+2024-04-03 11:04:26,784 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `phonebook` (`name` VARCHAR(255) , `phoneNumber` VARCHAR(255) NOT NULL ,  UNIQUE (`phoneNumber`), PRIMARY KEY (`name`) ) 
+2024-04-03 11:04:26,785 - creating table 'users'
+2024-04-03 11:04:26,787 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `users` (`username` VARCHAR(255) , `password` VARCHAR(255) NOT NULL , `role` VARCHAR(255) DEFAULT 'R' NOT NULL , PRIMARY KEY (`username`) ) 
+2024-04-03 11:04:26,787 - clearing table 'users' with 'TRUNCATE TABLE `users`
+2024-04-03 11:04:27,186 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@395281c2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@41d20f06, org.springframework.security.web.context.SecurityContextPersistenceFilter@382faf51, org.springframework.security.web.header.HeaderWriterFilter@606d6d2c, org.springframework.security.web.authentication.logout.LogoutFilter@55053f81, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6dcf7b6a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b5de9ac, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36e409e0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e753289, org.springframework.security.web.session.SessionManagementFilter@52b32b70, org.springframework.security.web.access.ExceptionTranslationFilter@21f50d2c, org.springframework.security.web.access.intercept.AuthorizationFilter@3e28dc96]
+2024-04-03 11:04:27,807 - Initializing Spring TestDispatcherServlet ''
+2024-04-03 11:04:27,807 - Initializing Servlet ''
+2024-04-03 11:04:27,813 - Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-04-03 11:04:27,828 - Completed initialization in 20 ms
+2024-04-03 11:04:27,860 - Started ControllerTest in 2.855 seconds (JVM running for 3.632)
+2024-04-03 11:04:28,164 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:28,278 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:28,372 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:28,474 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:28,567 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:28,659 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:28,750 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:28,851 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:28,942 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:29,033 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:29,124 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:29,222 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:29,315 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:29,407 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:29,499 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:29,591 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:29,686 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:29,778 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:29,870 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:29,963 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:30,055 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:30,146 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:30,238 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:30,329 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:30,421 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:30,514 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:30,606 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:30,698 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:30,789 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:30,882 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:30,973 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:04:31,070 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:20,030 - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cse5382.assignment.Controller.ControllerTest], using SpringBootContextLoader
+2024-04-03 11:10:20,034 - Could not detect default resource locations for test class [com.cse5382.assignment.Controller.ControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-04-03 11:10:20,035 - Could not detect default configuration classes for test class [com.cse5382.assignment.Controller.ControllerTest]: ControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-03 11:10:20,134 - Found @SpringBootConfiguration com.cse5382.assignment.AssignmentApplication for test class com.cse5382.assignment.Controller.ControllerTest
+2024-04-03 11:10:20,189 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener]
+2024-04-03 11:10:20,197 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@302a07d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5cdd09b1, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@8c11eee, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7e8dcdaa, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@681a8b4e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5cbe877d, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@5c08c46a, org.springframework.test.context.event.EventPublishingTestExecutionListener@4cf8b2dc, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@708400f6, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5829e4f4, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4218500f, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4bff64c2, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1b2c4efb, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@c35172e, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@c2db68f]
+2024-04-03 11:10:20,443 - Starting ControllerTest using Java 11.0.22 on omega.uta.edu with PID 98787 (started by sxk7070 in /home/sxk7070/SP/InputValidation/PhoneBook_Starter_Java_SpringBoot)
+2024-04-03 11:10:20,445 - The following 1 profile is active: "test"
+2024-04-03 11:10:20,534 - HV000001: Hibernate Validator 6.2.3.Final
+2024-04-03 11:10:21,934 - creating table 'phonebook'
+2024-04-03 11:10:22,086 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `phonebook` (`name` VARCHAR(255) , `phoneNumber` VARCHAR(255) NOT NULL ,  UNIQUE (`phoneNumber`), PRIMARY KEY (`name`) ) 
+2024-04-03 11:10:22,087 - creating table 'users'
+2024-04-03 11:10:22,089 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `users` (`username` VARCHAR(255) , `password` VARCHAR(255) NOT NULL , `role` VARCHAR(255) DEFAULT 'R' NOT NULL , PRIMARY KEY (`username`) ) 
+2024-04-03 11:10:22,089 - clearing table 'users' with 'TRUNCATE TABLE `users`
+2024-04-03 11:10:22,470 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5c839677, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3193e21d, org.springframework.security.web.context.SecurityContextPersistenceFilter@2e1add6f, org.springframework.security.web.header.HeaderWriterFilter@41a23470, org.springframework.security.web.authentication.logout.LogoutFilter@145e958f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@218df7d6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d6f77d7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@12c76d6e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@79604abe, org.springframework.security.web.session.SessionManagementFilter@4b508371, org.springframework.security.web.access.ExceptionTranslationFilter@7de5871d, org.springframework.security.web.access.intercept.AuthorizationFilter@43a7203e]
+2024-04-03 11:10:23,132 - Initializing Spring TestDispatcherServlet ''
+2024-04-03 11:10:23,133 - Initializing Servlet ''
+2024-04-03 11:10:23,138 - Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-04-03 11:10:23,153 - Completed initialization in 20 ms
+2024-04-03 11:10:23,182 - Started ControllerTest in 2.96 seconds (JVM running for 3.735)
+2024-04-03 11:10:23,484 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:26,191 - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cse5382.assignment.Controller.ControllerTest], using SpringBootContextLoader
+2024-04-03 11:10:26,195 - Could not detect default resource locations for test class [com.cse5382.assignment.Controller.ControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-04-03 11:10:26,196 - Could not detect default configuration classes for test class [com.cse5382.assignment.Controller.ControllerTest]: ControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-03 11:10:26,293 - Found @SpringBootConfiguration com.cse5382.assignment.AssignmentApplication for test class com.cse5382.assignment.Controller.ControllerTest
+2024-04-03 11:10:26,353 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener]
+2024-04-03 11:10:26,363 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@302a07d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5cdd09b1, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@8c11eee, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7e8dcdaa, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@681a8b4e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5cbe877d, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@5c08c46a, org.springframework.test.context.event.EventPublishingTestExecutionListener@4cf8b2dc, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@708400f6, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5829e4f4, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4218500f, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4bff64c2, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1b2c4efb, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@c35172e, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@c2db68f]
+2024-04-03 11:10:26,604 - Starting ControllerTest using Java 11.0.22 on omega.uta.edu with PID 98870 (started by sxk7070 in /home/sxk7070/SP/InputValidation/PhoneBook_Starter_Java_SpringBoot)
+2024-04-03 11:10:26,604 - The following 1 profile is active: "test"
+2024-04-03 11:10:26,625 - HV000001: Hibernate Validator 6.2.3.Final
+2024-04-03 11:10:28,017 - creating table 'phonebook'
+2024-04-03 11:10:28,165 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `phonebook` (`name` VARCHAR(255) , `phoneNumber` VARCHAR(255) NOT NULL ,  UNIQUE (`phoneNumber`), PRIMARY KEY (`name`) ) 
+2024-04-03 11:10:28,167 - creating table 'users'
+2024-04-03 11:10:28,168 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `users` (`username` VARCHAR(255) , `password` VARCHAR(255) NOT NULL , `role` VARCHAR(255) DEFAULT 'R' NOT NULL , PRIMARY KEY (`username`) ) 
+2024-04-03 11:10:28,169 - clearing table 'users' with 'TRUNCATE TABLE `users`
+2024-04-03 11:10:28,564 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@51132514, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@20864cd1, org.springframework.security.web.context.SecurityContextPersistenceFilter@473847fb, org.springframework.security.web.header.HeaderWriterFilter@592a1882, org.springframework.security.web.authentication.logout.LogoutFilter@52909a97, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1d1c37d5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@467af68c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74b97416, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c839677, org.springframework.security.web.session.SessionManagementFilter@5d27b4c1, org.springframework.security.web.access.ExceptionTranslationFilter@41582899, org.springframework.security.web.access.intercept.AuthorizationFilter@7afb9c93]
+2024-04-03 11:10:29,205 - Initializing Spring TestDispatcherServlet ''
+2024-04-03 11:10:29,206 - Initializing Servlet ''
+2024-04-03 11:10:29,211 - Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-04-03 11:10:29,225 - Completed initialization in 19 ms
+2024-04-03 11:10:29,255 - Started ControllerTest in 2.866 seconds (JVM running for 3.661)
+2024-04-03 11:10:29,569 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:55,195 - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cse5382.assignment.Controller.ControllerTest], using SpringBootContextLoader
+2024-04-03 11:10:55,199 - Could not detect default resource locations for test class [com.cse5382.assignment.Controller.ControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-04-03 11:10:55,199 - Could not detect default configuration classes for test class [com.cse5382.assignment.Controller.ControllerTest]: ControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-03 11:10:55,292 - Found @SpringBootConfiguration com.cse5382.assignment.AssignmentApplication for test class com.cse5382.assignment.Controller.ControllerTest
+2024-04-03 11:10:55,351 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener]
+2024-04-03 11:10:55,361 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2cc3ad05, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@710b18a6, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@119020fb, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3d9f6567, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@c055c54, org.springframework.test.context.support.DirtiesContextTestExecutionListener@25e2ab5a, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@35e5d0e5, org.springframework.test.context.event.EventPublishingTestExecutionListener@73173f63, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@55562aa9, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@655ef322, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7e276594, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3401a114, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5066d65f, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4233e892, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@77d2e85]
+2024-04-03 11:10:55,646 - Starting ControllerTest using Java 11.0.22 on omega.uta.edu with PID 99041 (started by sxk7070 in /home/sxk7070/SP/InputValidation/PhoneBook_Starter_Java_SpringBoot)
+2024-04-03 11:10:55,647 - The following 1 profile is active: "test"
+2024-04-03 11:10:55,663 - HV000001: Hibernate Validator 6.2.3.Final
+2024-04-03 11:10:56,992 - creating table 'phonebook'
+2024-04-03 11:10:57,135 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `phonebook` (`name` VARCHAR(255) , `phoneNumber` VARCHAR(255) NOT NULL ,  UNIQUE (`phoneNumber`), PRIMARY KEY (`name`) ) 
+2024-04-03 11:10:57,136 - creating table 'users'
+2024-04-03 11:10:57,138 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `users` (`username` VARCHAR(255) , `password` VARCHAR(255) NOT NULL , `role` VARCHAR(255) DEFAULT 'R' NOT NULL , PRIMARY KEY (`username`) ) 
+2024-04-03 11:10:57,138 - clearing table 'users' with 'TRUNCATE TABLE `users`
+2024-04-03 11:10:57,521 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@395281c2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@41d20f06, org.springframework.security.web.context.SecurityContextPersistenceFilter@382faf51, org.springframework.security.web.header.HeaderWriterFilter@606d6d2c, org.springframework.security.web.authentication.logout.LogoutFilter@55053f81, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6dcf7b6a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b5de9ac, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36e409e0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e753289, org.springframework.security.web.session.SessionManagementFilter@52b32b70, org.springframework.security.web.access.ExceptionTranslationFilter@21f50d2c, org.springframework.security.web.access.intercept.AuthorizationFilter@3e28dc96]
+2024-04-03 11:10:58,229 - Initializing Spring TestDispatcherServlet ''
+2024-04-03 11:10:58,229 - Initializing Servlet ''
+2024-04-03 11:10:58,235 - Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-04-03 11:10:58,252 - Completed initialization in 23 ms
+2024-04-03 11:10:58,285 - Started ControllerTest in 2.894 seconds (JVM running for 3.686)
+2024-04-03 11:10:58,582 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:58,681 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:58,775 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:58,879 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:58,972 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:59,064 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:59,171 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:59,264 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:59,357 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:59,449 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:59,541 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:59,633 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:59,727 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:59,819 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:10:59,913 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:00,007 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:00,099 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:00,193 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:00,286 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:00,379 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:00,472 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:00,565 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:00,658 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:00,750 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:00,842 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:00,933 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:01,025 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:01,117 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:01,209 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:01,300 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:01,394 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:01,486 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:01,578 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:11:01,670 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:22,853 - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cse5382.assignment.Controller.ControllerTest], using SpringBootContextLoader
+2024-04-03 11:55:22,857 - Could not detect default resource locations for test class [com.cse5382.assignment.Controller.ControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-04-03 11:55:22,858 - Could not detect default configuration classes for test class [com.cse5382.assignment.Controller.ControllerTest]: ControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-03 11:55:22,949 - Found @SpringBootConfiguration com.cse5382.assignment.AssignmentApplication for test class com.cse5382.assignment.Controller.ControllerTest
+2024-04-03 11:55:23,009 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener]
+2024-04-03 11:55:23,026 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2cc3ad05, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@710b18a6, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@119020fb, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3d9f6567, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@c055c54, org.springframework.test.context.support.DirtiesContextTestExecutionListener@25e2ab5a, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@35e5d0e5, org.springframework.test.context.event.EventPublishingTestExecutionListener@73173f63, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@55562aa9, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@655ef322, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7e276594, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3401a114, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5066d65f, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4233e892, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@77d2e85]
+2024-04-03 11:55:23,261 - Starting ControllerTest using Java 11.0.22 on omega.uta.edu with PID 113432 (started by sxk7070 in /home/sxk7070/SP/InputValidation/PhoneBook_Starter_Java_SpringBoot)
+2024-04-03 11:55:23,262 - The following 1 profile is active: "test"
+2024-04-03 11:55:23,296 - HV000001: Hibernate Validator 6.2.3.Final
+2024-04-03 11:55:24,651 - creating table 'phonebook'
+2024-04-03 11:55:24,793 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `phonebook` (`name` VARCHAR(255) , `phoneNumber` VARCHAR(255) NOT NULL ,  UNIQUE (`phoneNumber`), PRIMARY KEY (`name`) ) 
+2024-04-03 11:55:24,796 - creating table 'users'
+2024-04-03 11:55:24,797 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `users` (`username` VARCHAR(255) , `password` VARCHAR(255) NOT NULL , `role` VARCHAR(255) DEFAULT 'R' NOT NULL , PRIMARY KEY (`username`) ) 
+2024-04-03 11:55:24,797 - clearing table 'users' with 'TRUNCATE TABLE `users`
+2024-04-03 11:55:25,174 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4eb63dc8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@402d6012, org.springframework.security.web.context.SecurityContextPersistenceFilter@15f2a43f, org.springframework.security.web.header.HeaderWriterFilter@e3ed455, org.springframework.security.web.authentication.logout.LogoutFilter@218df7d6, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@184de357, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69ce14e6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@57bdceaa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@395281c2, org.springframework.security.web.session.SessionManagementFilter@7f6b57f2, org.springframework.security.web.access.ExceptionTranslationFilter@4b508371, org.springframework.security.web.access.intercept.AuthorizationFilter@7e81617a]
+2024-04-03 11:55:25,813 - Initializing Spring TestDispatcherServlet ''
+2024-04-03 11:55:25,814 - Initializing Servlet ''
+2024-04-03 11:55:25,820 - Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-04-03 11:55:25,876 - Completed initialization in 62 ms
+2024-04-03 11:55:25,915 - Started ControllerTest in 2.864 seconds (JVM running for 3.671)
+2024-04-03 11:55:26,199 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:26,298 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:26,391 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:26,493 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:26,584 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:26,675 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:26,781 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:26,872 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:26,964 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:27,056 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:27,146 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:27,238 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:27,330 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:27,422 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:27,514 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:27,606 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:27,697 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:27,791 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:27,884 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:27,976 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:28,069 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:28,161 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:28,254 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:28,346 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:28,437 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:28,528 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:28,619 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:28,711 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:28,803 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:28,894 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:28,984 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:29,076 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:29,167 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 11:55:29,257 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:16,745 - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cse5382.assignment.Controller.ControllerTest], using SpringBootContextLoader
+2024-04-03 12:13:16,749 - Could not detect default resource locations for test class [com.cse5382.assignment.Controller.ControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-04-03 12:13:16,750 - Could not detect default configuration classes for test class [com.cse5382.assignment.Controller.ControllerTest]: ControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-03 12:13:16,837 - Found @SpringBootConfiguration com.cse5382.assignment.AssignmentApplication for test class com.cse5382.assignment.Controller.ControllerTest
+2024-04-03 12:13:16,900 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener]
+2024-04-03 12:13:16,908 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@34f7234e, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@753432a2, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@23bff419, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4983159f, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@44e3a2b2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@101639ae, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@4c550889, org.springframework.test.context.event.EventPublishingTestExecutionListener@1d2bd371, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@44040454, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@65fe9e33, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@18bc345, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@42f8285e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@26bab2f1, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3724af13, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@68ead359]
+2024-04-03 12:13:17,157 - Starting ControllerTest using Java 11.0.22 on omega.uta.edu with PID 118835 (started by sxk7070 in /home/sxk7070/SP/InputValidation/PhoneBook_Starter_Java_SpringBoot)
+2024-04-03 12:13:17,157 - The following 1 profile is active: "test"
+2024-04-03 12:13:17,165 - HV000001: Hibernate Validator 6.2.3.Final
+2024-04-03 12:13:18,083 - creating table 'phonebook'
+2024-04-03 12:13:18,279 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `phonebook` (`name` VARCHAR(255) , `phoneNumber` VARCHAR(255) NOT NULL ,  UNIQUE (`phoneNumber`), PRIMARY KEY (`name`) ) 
+2024-04-03 12:13:18,281 - creating table 'users'
+2024-04-03 12:13:18,282 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `users` (`username` VARCHAR(255) , `password` VARCHAR(255) NOT NULL , `role` VARCHAR(255) DEFAULT 'R' NOT NULL , PRIMARY KEY (`username`) ) 
+2024-04-03 12:13:18,282 - clearing table 'users' with 'TRUNCATE TABLE `users`
+2024-04-03 12:13:18,681 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@27585351, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2de6f1bc, org.springframework.security.web.context.SecurityContextPersistenceFilter@47a7c93e, org.springframework.security.web.header.HeaderWriterFilter@21e45a6f, org.springframework.security.web.authentication.logout.LogoutFilter@2e7af36e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5e9bbd9d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10a18e3e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5bde57ab, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b35c7d, org.springframework.security.web.session.SessionManagementFilter@594131f2, org.springframework.security.web.access.ExceptionTranslationFilter@32a4ecbe, org.springframework.security.web.access.intercept.AuthorizationFilter@1cbc5693]
+2024-04-03 12:13:19,316 - Initializing Spring TestDispatcherServlet ''
+2024-04-03 12:13:19,317 - Initializing Servlet ''
+2024-04-03 12:13:19,323 - Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-04-03 12:13:19,339 - Completed initialization in 22 ms
+2024-04-03 12:13:19,370 - Started ControllerTest in 2.433 seconds (JVM running for 3.214)
+2024-04-03 12:13:19,902 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:20,000 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:20,094 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:20,196 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:20,288 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:20,381 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:20,487 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:20,579 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:20,671 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:20,763 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:20,855 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:20,951 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:21,054 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:21,153 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:21,245 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:21,338 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:21,429 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:21,521 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:21,612 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:21,704 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:21,795 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:21,887 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:21,980 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:22,071 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:22,162 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:22,253 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:22,344 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:22,435 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:22,525 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:22,615 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:22,705 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:22,797 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:22,889 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:13:22,980 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:28,435 - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cse5382.assignment.Controller.ControllerTest], using SpringBootContextLoader
+2024-04-03 12:16:28,439 - Could not detect default resource locations for test class [com.cse5382.assignment.Controller.ControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-04-03 12:16:28,440 - Could not detect default configuration classes for test class [com.cse5382.assignment.Controller.ControllerTest]: ControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-03 12:16:28,526 - Found @SpringBootConfiguration com.cse5382.assignment.AssignmentApplication for test class com.cse5382.assignment.Controller.ControllerTest
+2024-04-03 12:16:28,586 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener]
+2024-04-03 12:16:28,596 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@44e3a2b2, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@101639ae, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4c550889, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1d2bd371, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@44040454, org.springframework.test.context.support.DirtiesContextTestExecutionListener@65fe9e33, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@18bc345, org.springframework.test.context.event.EventPublishingTestExecutionListener@42f8285e, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@26bab2f1, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3724af13, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@68ead359, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6b53bcc2, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@180da663, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@a43ce46, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@340da44c]
+2024-04-03 12:16:28,819 - Starting ControllerTest using Java 11.0.22 on omega.uta.edu with PID 120016 (started by sxk7070 in /home/sxk7070/SP/InputValidation/PhoneBook_Starter_Java_SpringBoot)
+2024-04-03 12:16:28,820 - The following 1 profile is active: "test"
+2024-04-03 12:16:28,933 - HV000001: Hibernate Validator 6.2.3.Final
+2024-04-03 12:16:29,705 - creating table 'phonebook'
+2024-04-03 12:16:29,879 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `phonebook` (`name` VARCHAR(255) , `phoneNumber` VARCHAR(255) NOT NULL ,  UNIQUE (`phoneNumber`), PRIMARY KEY (`name`) ) 
+2024-04-03 12:16:29,882 - creating table 'users'
+2024-04-03 12:16:29,884 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `users` (`username` VARCHAR(255) , `password` VARCHAR(255) NOT NULL , `role` VARCHAR(255) DEFAULT 'R' NOT NULL , PRIMARY KEY (`username`) ) 
+2024-04-03 12:16:29,884 - clearing table 'users' with 'TRUNCATE TABLE `users`
+2024-04-03 12:16:30,288 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@49cd946c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@40bf4386, org.springframework.security.web.context.SecurityContextPersistenceFilter@4792f119, org.springframework.security.web.header.HeaderWriterFilter@198536f6, org.springframework.security.web.authentication.logout.LogoutFilter@741ac284, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@27585351, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@23ca36d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4cc01c7f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@14d25b6e, org.springframework.security.web.session.SessionManagementFilter@47a7c93e, org.springframework.security.web.access.ExceptionTranslationFilter@50085d9c, org.springframework.security.web.access.intercept.AuthorizationFilter@71664560]
+2024-04-03 12:16:30,981 - Initializing Spring TestDispatcherServlet ''
+2024-04-03 12:16:30,981 - Initializing Servlet ''
+2024-04-03 12:16:30,988 - Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-04-03 12:16:31,005 - Completed initialization in 24 ms
+2024-04-03 12:16:31,035 - Started ControllerTest in 2.412 seconds (JVM running for 3.187)
+2024-04-03 12:16:31,553 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:31,652 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:31,746 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:31,849 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:31,942 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:32,034 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:32,140 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:32,232 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:32,326 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:32,419 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:32,511 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:32,607 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:32,710 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:32,808 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:32,899 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:32,992 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:33,083 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:33,175 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:33,268 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:33,360 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:33,452 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:33,544 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:33,637 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:33,730 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:33,822 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:33,914 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:34,005 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:34,097 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:34,188 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:34,279 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:34,369 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:34,461 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:34,552 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`
+2024-04-03 12:16:34,644 - clearing table 'phonebook' with 'TRUNCATE TABLE `phonebook`

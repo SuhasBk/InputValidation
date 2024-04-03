@@ -10,9 +10,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import org.springframework.test.context.ActiveProfiles;
@@ -21,7 +21,6 @@ import org.springframework.test.web.servlet.MvcResult;
 
 import com.cse5382.assignment.Model.PhoneBookEntry;
 import com.cse5382.assignment.Model.PhoneBookResponse;
-import com.cse5382.assignment.Service.PhoneBookServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
@@ -34,21 +33,22 @@ public class ControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
-    private PhoneBookServiceImpl service;
-
     @Autowired
     ConnectionSource cs;
 
     private ObjectMapper objectMapper;
+
+    @Value("${READ_WRITE_USER}")
     private String username;
+
+    @Value("${READ_WRITE_USER_PWD}")
     private String password;
 
     @BeforeEach
     void setUp() {
         objectMapper = new ObjectMapper();
-        username = "User_RW";
-        password = "PWD_RW";
+        username = "testUserRW";
+        password = "testPWDRW";
     }
 
     /* Given test cases in the problem statement */
@@ -77,7 +77,7 @@ public class ControllerTest {
     void testAddGivenAcceptableInput2() throws Exception {
         PhoneBookEntry pbEntry = new PhoneBookEntry();
         pbEntry.setName("Schneier, Bruce");
-        pbEntry.setPhoneNumber("213-456-789");
+        pbEntry.setPhoneNumber("213-4567");
 
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
@@ -623,7 +623,7 @@ public class ControllerTest {
     }
 
 
-    /* Student Test Cases */
+    /* 4 Additional Student Test Cases */
 
     @Test
     void testAddStudentUnacceptableInputStartWithCapitalize() throws Exception {
@@ -654,8 +654,46 @@ public class ControllerTest {
                 .andExpect(status().isBadRequest())
                 .andReturn();
 
-        PhoneBookResponse response = objectMapper.readValue(result.getResponse().getContentAsString(),
-                PhoneBookResponse.class);
+        PhoneBookResponse response = objectMapper.readValue(result.getResponse().getContentAsString(), PhoneBookResponse.class);
+        assert response.getStatusCode() == 400;
+    }
+
+    @Test
+    void testAddAcceptableDanishPhoneNumber() throws Exception {
+        PhoneBookEntry pbEntry = new PhoneBookEntry();
+        pbEntry.setName("Bruce Schneier");
+        pbEntry.setPhoneNumber("+45 00.00.00.00");
+
+        String jsonEntry = objectMapper.writeValueAsString(pbEntry);
+
+        MvcResult result = mockMvc.perform(post("/phoneBook/add")
+                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonEntry))
+                        .andExpect(status().isOk())
+                        .andReturn();
+
+        PhoneBookResponse response = objectMapper.readValue(result.getResponse().getContentAsString(), PhoneBookResponse.class);
+        assert response.getStatusCode() == 200;
+        assert response.getMessage().equals("New Entry Added");
+    }
+
+    @Test
+    void testDeleteByNumberUnacceptableNameAndPhoneNumber() throws Exception {
+        PhoneBookEntry pbEntry = new PhoneBookEntry();
+        pbEntry.setName("Bruce Schneier Schneier Bruce");
+        pbEntry.setPhoneNumber("123-456789");
+
+        String jsonEntry = objectMapper.writeValueAsString(pbEntry);
+
+        MvcResult result = mockMvc.perform(post("/phoneBook/add")
+                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonEntry))
+                        .andExpect(status().isBadRequest())
+                        .andReturn();
+
+        PhoneBookResponse response = objectMapper.readValue(result.getResponse().getContentAsString(), PhoneBookResponse.class);
         assert response.getStatusCode() == 400;
     }
 

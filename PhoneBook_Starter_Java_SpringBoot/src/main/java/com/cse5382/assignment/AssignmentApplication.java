@@ -19,24 +19,20 @@ import com.j256.ormlite.table.TableUtils;
 @SpringBootApplication
 public class AssignmentApplication {
 
-	@Value("${databaseUrl}")
+	@Value("${DATABASE_URL}")
 	String databaseUrl;
 
-	@Value("${rUser}")
+	@Value("${READ_USER}")
 	String rUser;
 
-	@Value("${rUserPwd}")
+	@Value("${READ_USER_PWD}")
 	String rUserPwd;
 
-	@Value("${rwUser}")
+	@Value("${READ_WRITE_USER}")
 	String rwUser;
 
-	@Value("${rwUserPwd}")
+	@Value("${READ_WRITE_USER_PWD}")
 	String rwUserPwd;
-
-	public static void main(String[] args) {
-		SpringApplication.run(AssignmentApplication.class, args);
-	}
 
 	@Bean
 	BCryptPasswordEncoder encoder() {
@@ -64,6 +60,10 @@ public class AssignmentApplication {
 		userDao.createIfNotExists(dummyReadUser);
 		userDao.createIfNotExists(dummyReadWriteUser);
 		return connectionSource;
+	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(AssignmentApplication.class, args);
 	}
 
 }
