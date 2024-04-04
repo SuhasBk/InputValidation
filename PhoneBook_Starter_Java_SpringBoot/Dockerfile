@@ -3,6 +3,9 @@ COPY src /home/app/src
 COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml clean install
 
+FROM scratch AS tests
+COPY --from=build /home/app/target/site/ /tests/
+
 FROM openjdk:11-jre-slim
 COPY --from=build /home/app/target/assignment-0.0.1-SNAPSHOT.jar /usr/local/lib/app.jar
 EXPOSE 8080
