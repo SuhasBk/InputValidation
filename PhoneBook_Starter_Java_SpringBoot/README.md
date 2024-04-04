@@ -82,6 +82,8 @@ READ_WRITE_USER_PWD = PWD_RW
 - `/phoneBook/list` only requires `READ` authority to access the resource. It can also be accessed using `READ_WRITE` authority.
 - `phoneBook/add`, `/phoneBook/deleteByName` and `/phoneBook/deleteByNumber` specifically requires `READ_WRITE` authority. If a user without this authority tries to alter the contents of the database using those endpoints, an error is thrown with `401 Unauthorized` status.
 
+These rules are declared in `SecurityConfig.java` which also uses `CustomAuthprovider.java` for the implementation of authentication.
+
 NOTE: to access the endpoints, one needs to pass the Basic Authentication header with any one of the above user details.
 
 ### Input Validation
