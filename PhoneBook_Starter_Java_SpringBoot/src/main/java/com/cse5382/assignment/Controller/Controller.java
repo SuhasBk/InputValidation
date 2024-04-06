@@ -3,8 +3,8 @@ package com.cse5382.assignment.Controller;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Pattern;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;

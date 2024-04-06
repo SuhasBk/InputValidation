@@ -2,8 +2,8 @@ package com.cse5382.assignment.Model;
 
 import java.util.Objects;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 import com.cse5382.assignment.Service.PhoneBookServiceImpl;
 import com.cse5382.assignment.Util.AppConstants;

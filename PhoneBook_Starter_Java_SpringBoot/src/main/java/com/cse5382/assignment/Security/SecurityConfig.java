@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig {
@@ -25,20 +27,17 @@ public class SecurityConfig {
     }
 
     @Bean
-    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {                
         http
-        .sessionManagement()
-        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        .and()
-        .csrf().disable()
-        .authorizeHttpRequests()
-        .antMatchers("/phoneBook/list").hasAnyAuthority("ROLE_READ", "ROLE_READ_WRITE")
-        .antMatchers("/phoneBook/add", "/phoneBook/deleteByName", "/phoneBook/deleteByNumber").hasAuthority("ROLE_READ_WRITE")
-        .anyRequest()
-        .authenticated()
-        .and()
-        .httpBasic();
-
+        .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+        .csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(requests -> requests
+            .requestMatchers("/phoneBook/list").hasAnyAuthority("ROLE_READ", "ROLE_READ_WRITE")
+            .requestMatchers("/phoneBook/add", "/phoneBook/deleteByName", "/phoneBook/deleteByNumber").hasAuthority("ROLE_READ_WRITE")
+            .anyRequest()
+            .authenticated())
+            .httpBasic(withDefaults()
+        );
         return http.build();
     }
     
