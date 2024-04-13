@@ -11,11 +11,7 @@ Then,
 
 `docker run -p 8080:8080 sxk7070_project:prod`
 
-Now, the application will be up and running on the port - `8080`. You can also change the port from 8080 to a desired port as follows:
-
-`docker run -p <YOUR_PORT>:8080 sxk7070_project:prod`
-
-NOTE: Please make sure that you are only changing the DESTINATION port and not the SOURCE port.
+Now, the application will be up and running in your local machine on the port - `8080`.
 
 ### Running the unit tests
 

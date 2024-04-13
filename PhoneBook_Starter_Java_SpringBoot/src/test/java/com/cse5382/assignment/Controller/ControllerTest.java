@@ -5,6 +5,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.sql.SQLException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +17,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -25,10 +27,26 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 public class ControllerTest {
+
+    @Value("${JWT_SECRET_KEY}")
+    private String SECRET_KEY;
+
+    @Value("${READ_WRITE_USER}")
+    private String username;
+
+    @Value("${READ_WRITE_USER_PWD}")
+    private String password;
+
+    private final String AUTH_HEADER_KEY = "Authorization";
 
     @Autowired
     private MockMvc mockMvc;
@@ -38,17 +56,27 @@ public class ControllerTest {
 
     private ObjectMapper objectMapper;
 
-    @Value("${READ_WRITE_USER}")
-    private String username;
+    private String token;
 
-    @Value("${READ_WRITE_USER_PWD}")
-    private String password;
+    private String authHeader;
 
     @BeforeEach
     void setUp() {
         objectMapper = new ObjectMapper();
-        username = "testUserRW";
-        password = "testPWDRW";
+
+        final Map<String, Object> claims = new HashMap<>();
+        claims.put("userId", username);
+        claims.put("password", password);
+
+        token = Jwts.builder()
+                .setClaims(claims)
+                .setSubject(username)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + 3600000))
+                .signWith(Keys.hmacShaKeyFor(Decoders.BASE64.decode(SECRET_KEY)), SignatureAlgorithm.HS256)
+                .compact();
+        
+        authHeader = "Bearer " + token;
     }
 
     /* Given test cases in the problem statement */
@@ -62,7 +90,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonEntry))
                 .andExpect(status().isOk())
@@ -82,7 +110,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonEntry))
                 .andExpect(status().isOk())
@@ -102,7 +130,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonEntry))
                 .andExpect(status().isOk())
@@ -116,7 +144,7 @@ public class ControllerTest {
     @Test
     void testDeleteByNameGivenAcceptableInput4() throws Exception {
         MvcResult result = mockMvc.perform(put("/phoneBook/deleteByName")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .param("name", "O'Malley, John F."))
                 .andExpect(status().isNotFound())
                 .andReturn();
@@ -128,7 +156,7 @@ public class ControllerTest {
     @Test
     void testDeleteByNameGivenAcceptableInput5() throws Exception {
         MvcResult result = mockMvc.perform(put("/phoneBook/deleteByName")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .param("name", "John O'Malley-Smith")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound())
@@ -142,7 +170,7 @@ public class ControllerTest {
     @Test
     void testDeleteByNameGivenAcceptableInput6() throws Exception {
         MvcResult result = mockMvc.perform(put("/phoneBook/deleteByName")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .param("name", "Cher")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound())
@@ -162,7 +190,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonEntry))
                 .andExpect(status().isBadRequest())
@@ -182,7 +210,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonEntry))
                 .andExpect(status().isBadRequest())
@@ -202,7 +230,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonEntry))
                 .andExpect(status().isBadRequest())
@@ -216,7 +244,7 @@ public class ControllerTest {
     @Test
     void testDeleteByNameGivenUnacceptableInput4() throws Exception {
         MvcResult result = mockMvc.perform(put("/phoneBook/deleteByName")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .param("name", "<Script>alert(\"XSS\")</Script>")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
@@ -230,7 +258,7 @@ public class ControllerTest {
     @Test
     void testDeleteByNameGivenUnacceptableInput5() throws Exception {
         MvcResult result = mockMvc.perform(put("/phoneBook/deleteByName")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .param("name", "Brad Everett Samuel Smith")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
@@ -244,7 +272,7 @@ public class ControllerTest {
     @Test
     void testDeleteByNameGivenUnacceptableInput6() throws Exception {
         MvcResult result = mockMvc.perform(put("/phoneBook/deleteByName")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .param("name", "select * from users;")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
@@ -264,7 +292,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonEntry))
                 .andExpect(status().isOk())
@@ -284,7 +312,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonEntry))
                 .andExpect(status().isOk())
@@ -304,7 +332,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isOk())
@@ -325,7 +353,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isOk())
@@ -346,7 +374,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isOk())
@@ -367,7 +395,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isOk())
@@ -388,7 +416,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isOk())
@@ -409,7 +437,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isOk())
@@ -430,7 +458,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isOk())
@@ -451,7 +479,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isBadRequest())
@@ -471,7 +499,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isBadRequest())
@@ -491,7 +519,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isBadRequest())
@@ -511,7 +539,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isBadRequest())
@@ -531,7 +559,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isBadRequest())
@@ -551,7 +579,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isBadRequest())
@@ -571,7 +599,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isBadRequest())
@@ -591,7 +619,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isBadRequest())
@@ -611,7 +639,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isBadRequest())
@@ -634,7 +662,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonEntry))
                 .andExpect(status().isBadRequest())
@@ -648,7 +676,7 @@ public class ControllerTest {
     @Test
     void testDeleteByNameStudentUnacceptableInputEndsWithDoublePeriod() throws Exception {
         MvcResult result = mockMvc.perform(put("/phoneBook/deleteByName")
-                .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                .header(AUTH_HEADER_KEY, authHeader)
                 .param("name", "John..")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
@@ -667,7 +695,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isOk())
@@ -687,7 +715,7 @@ public class ControllerTest {
         String jsonEntry = objectMapper.writeValueAsString(pbEntry);
 
         MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .with(SecurityMockMvcRequestPostProcessors.httpBasic(username, password))
+                        .header(AUTH_HEADER_KEY, authHeader)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonEntry))
                         .andExpect(status().isBadRequest())

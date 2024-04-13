@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "users")
-public class PhoneBookUser{
+public class PhoneBookUser {
 
     public static final String USERNAME_FIELD_NAME = "username";
     public static final String PASSWORD_FIELD_NAME = "password";
