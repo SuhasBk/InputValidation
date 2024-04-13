@@ -61,7 +61,7 @@ The application initializes the database at startup (`AssignmentApplication.java
 
 ### Authentication & Authorization
 
-Each and every request to the application is designed such that it should be authenticated with a valid user. This is implemented using Spring Security. The authentication mechanism used is a stateless - `Basic Authentication` which requires every incoming HTTP request to have a `Basic <base-64(username:password)>` header.
+The REST APIs are defined such that each and every request should be authenticated with a valid user JWT token. This is implemented using Spring Security. The authentication mechanism used is a stateless - `JWT Authentication` which requires every incoming HTTP request to have a `Authorization` header with `Bearer <jwt_token>` value. A user can get the token using the following endpoint by providing correct credentials: `/phoneBook/api/auth/authenticate`
 
 Every request is validated before it reaches the service layer / persistence layer.
 
@@ -105,21 +105,25 @@ Unit tests are written using jUnit framework using which the Controller methods 
 
 NOTE: While testing, appropriate configurations are isolated: `application-test.properties` and `logback-test.xml` using Spring Profiles functionality.
 
+### Errors and Exceptions
+
+The application handles all errors and exceptions globally in the file - `PhonebookControllerAdvice.java`. This file encapsulates both runtime exceptions such as `SQLException` and business logic specific exceptions such as invalid inputs and phone book inconsistent inputs.
+
 # Assumptions
 
-1) Uses Maven as a build tool.
-2) As stated earlier, we assume the two types users are already in the database and there is no functionality to "register" new users with different roles.
-3) PhoneBook logs are cleared every time the application is restarted.
-4) While testing, an in-memory H2 database is used for isolated and faster testing.
-5) Basic Authentication is used with BCrypt password encoding.
+1) As stated earlier, we assume the two types users are already in the database and there is no functionality to "register" new users with different roles.
+2) PhoneBook logs are cleared every time the application is restarted.
+3) While testing, an in-memory H2 database is used for isolated and faster testing.
+4) Database connections are handled using thread pooling by `JdbcPooledConnectionSource` for efficient performance.
+5) JWT Authentication is used with BCrypt password encoding. Each token is valid for 30 minutes.
+6) Centralized errors and exception handling using - `PhoneBookControllerAdvice.java`.
 
 # Pros
 
 1) Validates requests before malicious data reaches the service or database layer using `@Pattern` and `@Valid` annotations.
 2) Uses a separate in-memory H2 database for testing to isolate prod and test databases.
-3) Uses a light-weight ORM framework - ORMLite instead of standard Hibernate/Spring Data JPA for enhanced performance. Even though, there is no direct support for `INSERT` using a prepared statement, the `create` API internally uses PreparedStatements to unpack the POJO and insert the values into the tables.
-4) Authentication is stateless, meaning, each request must contain the correct username and password combination.
+3) Uses a light-weight ORM framework - ORMLite instead of standard Hibernate/Spring Data JPA for enhanced performance. Even though, there is no direct support for `INSERT` using a prepared statement, the `create` API internally uses PreparedStatements to deserialize the POJO and insert the values into the tables.
+4) Authentication is stateless, meaning, each and every request must contain the JWT token.
 
 # Cons
-1) Since the header is Base64 encrypted according to Basic Authentication mechanism, it will be very easy for the attackers to decode the username and password combination.
-2) Even though the username and password are not hardcoded and taken from the properties file as is, it is much safer to centralize the config in a separate secure server.
+1) Even though the username and password are not hardcoded and taken from the properties file during runtime, a better and safer approach is to centralize the config in a separate secure server.
