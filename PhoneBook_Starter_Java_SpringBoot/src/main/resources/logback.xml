@@ -7,7 +7,7 @@
     </appender>
 
     <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>app.log</file>
+        <file>logs/app.log</file>
         <encoder>
             <pattern>%d - %msg%n</pattern>
         </encoder>
@@ -22,7 +22,7 @@
     </appender>
 
     <appender name="PhoneBookAudit" class="ch.qos.logback.core.FileAppender">
-        <file>audits.log</file>
+        <file>logs/audits.log</file>
         <encoder>
             <pattern>%d - %msg%n</pattern>
         </encoder>
