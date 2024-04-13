@@ -103,7 +103,7 @@ This application logs the phone book operations in the `audits.log` which record
 
 Unit tests are written using jUnit framework using which the Controller methods are extensively tested for acceptable and non-acceptable string combinations. 
 
-NOTE: While testing, appropriate configurations are isolated: `application-test.properties` and `logback-test.xml` using Spring Profiles functionality.
+NOTE: While testing, appropriate configurations are isolated: `application-test.properties` using Spring Profiles functionality.
 
 ### Errors and Exceptions
 
@@ -116,7 +116,6 @@ The application handles all errors and exceptions globally in the file - `Phoneb
 3) While testing, an in-memory H2 database is used for isolated and faster testing.
 4) Database connections are handled using thread pooling by `JdbcPooledConnectionSource` for efficient performance.
 5) JWT Authentication is used with BCrypt password encoding. Each token is valid for 30 minutes.
-6) Centralized errors and exception handling using - `PhoneBookControllerAdvice.java`.
 
 # Pros
 
@@ -124,6 +123,7 @@ The application handles all errors and exceptions globally in the file - `Phoneb
 2) Uses a separate in-memory H2 database for testing to isolate prod and test databases.
 3) Uses a light-weight ORM framework - ORMLite instead of standard Hibernate/Spring Data JPA for enhanced performance. Even though, there is no direct support for `INSERT` using a prepared statement, the `create` API internally uses PreparedStatements to deserialize the POJO and insert the values into the tables.
 4) Authentication is stateless, meaning, each and every request must contain the JWT token.
+5) Centralized errors and exception handling using - `PhoneBookControllerAdvice.java`.
 
 # Cons
 1) Even though the username and password are not hardcoded and taken from the properties file during runtime, a better and safer approach is to centralize the config in a separate secure server.
