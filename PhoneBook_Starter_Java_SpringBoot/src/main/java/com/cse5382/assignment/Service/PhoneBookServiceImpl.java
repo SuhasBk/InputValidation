@@ -60,7 +60,7 @@ public class PhoneBookServiceImpl extends BaseDaoImpl<PhoneBookEntry, String> im
 
         if (pbEntry != null) {
             delete(pbEntry);
-            PHONE_BOOK_LOGGER.info("Deleted entry (by name) - {}: {}", pbEntry.getName(), pbEntry.getPhoneNumber());
+            PHONE_BOOK_LOGGER.info("Deleted entry (by name) - {}", pbEntry.getName());
         } else {
             throw new PhoneBookEntryNotFoundException();
         }
@@ -80,7 +80,7 @@ public class PhoneBookServiceImpl extends BaseDaoImpl<PhoneBookEntry, String> im
 
         if (pbEntry != null) {
             delete(pbEntry);
-            PHONE_BOOK_LOGGER.info("Deleted entry (by number) - {}: {}", pbEntry.getName(), pbEntry.getPhoneNumber());
+            PHONE_BOOK_LOGGER.info("Deleted entry (by number) - {}", pbEntry.getName());
         } else {
             throw new PhoneBookEntryNotFoundException();
         }

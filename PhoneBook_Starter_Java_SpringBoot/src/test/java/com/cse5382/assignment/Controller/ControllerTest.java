@@ -707,22 +707,40 @@ public class ControllerTest {
     }
 
     @Test
-    void testDeleteByNumberUnacceptableNameAndPhoneNumber() throws Exception {
-        PhoneBookEntry pbEntry = new PhoneBookEntry();
-        pbEntry.setName("Bruce Schneier Schneier Bruce");
-        pbEntry.setPhoneNumber("123-456789");
-
-        String jsonEntry = objectMapper.writeValueAsString(pbEntry);
-
-        MvcResult result = mockMvc.perform(post("/phoneBook/add")
-                        .header(AUTH_HEADER_KEY, authHeader)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(jsonEntry))
-                        .andExpect(status().isBadRequest())
-                        .andReturn();
+    void testDeleteByNumberUnacceptablePhoneNumber() throws Exception {
+        MvcResult result = mockMvc.perform(put("/phoneBook/deleteByNumber")
+                .header(AUTH_HEADER_KEY, authHeader)
+                .param("number", "123-456789"))
+                .andExpect(status().isBadRequest())
+                .andReturn();
 
         PhoneBookResponse response = objectMapper.readValue(result.getResponse().getContentAsString(), PhoneBookResponse.class);
         assert response.getStatusCode() == 400;
+    }
+
+    @Test
+    void testDeleteByNumberAcceptablePhoneNumber() throws Exception {
+        PhoneBookEntry pbEntry = new PhoneBookEntry();
+        pbEntry.setName("Bruce Wayne");
+        pbEntry.setPhoneNumber("987-6543");
+
+        String jsonEntry = objectMapper.writeValueAsString(pbEntry);
+
+        mockMvc.perform(post("/phoneBook/add")
+                .header(AUTH_HEADER_KEY, authHeader)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(jsonEntry))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        MvcResult result = mockMvc.perform(put("/phoneBook/deleteByNumber")
+                .header(AUTH_HEADER_KEY, authHeader)
+                .param("number", "987-6543"))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        PhoneBookResponse response = objectMapper.readValue(result.getResponse().getContentAsString(), PhoneBookResponse.class);
+        assert response.getStatusCode() == 200;
     }
 
     @AfterEach
