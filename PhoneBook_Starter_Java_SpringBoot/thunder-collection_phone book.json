@@ -1,0 +1,125 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "phone book",
+    "dateExported": "2024-04-13T03:03:31.627Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "c6d29b58-d776-4472-9fa7-64681abbce67",
+            "colId": "1aa0595c-58e0-45fa-91b8-a87c1d8a37a0",
+            "containerId": "",
+            "name": "list",
+            "url": "/list",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-03-31T08:09:14.138Z",
+            "modified": "2024-04-06T04:56:04.082Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyX1JXIiwiaWF0IjoxNzEyMzc5MzUzLCJleHAiOjE3MTIzODA3OTN9.gx2My8Ex8H6nPScAxTxh6PQBGHn23gDVR5u8xcNGesM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b02a4725-82d3-4af0-891e-44df5e3ff953",
+            "colId": "1aa0595c-58e0-45fa-91b8-a87c1d8a37a0",
+            "containerId": "",
+            "name": "add",
+            "url": "/add",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-03-31T08:10:37.284Z",
+            "modified": "2024-04-03T17:39:47.159Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Suhas Kowligi\",\n  \"phoneNumber\": \"123-4567\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c5f38f57-d9d0-451b-8038-b412eda9b4c4",
+            "colId": "1aa0595c-58e0-45fa-91b8-a87c1d8a37a0",
+            "containerId": "",
+            "name": "deleteByName",
+            "url": "/deleteByName",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-03-31T08:11:25.299Z",
+            "modified": "2024-04-03T17:39:59.700Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Suhas Kowligi"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "d88d1043-6dca-4310-a736-fa4c06fa8c65",
+            "colId": "1aa0595c-58e0-45fa-91b8-a87c1d8a37a0",
+            "containerId": "",
+            "name": "deleteByNumber",
+            "url": "/deleteByNumber",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-03-31T17:44:55.568Z",
+            "modified": "2024-04-03T17:40:10.971Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "number",
+                        "value": "123-4567"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "aaf6023e-ed65-4817-ae60-7e3492375688",
+            "colId": "1aa0595c-58e0-45fa-91b8-a87c1d8a37a0",
+            "containerId": "",
+            "name": "JWT",
+            "url": "http://localhost:8080/api/auth/authenticate",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-04-13T02:59:12.347Z",
+            "modified": "2024-04-13T02:59:12.347Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"User_RW\",\n  \"password\": \"PWD_RW\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ],
+    "settings": {
+        "auth": {
+            "type": "basic",
+            "basic": {
+                "username": "User_RW",
+                "password": "PWD_RW"
+            }
+        },
+        "options": {
+            "baseUrl": "localhost:8080/phoneBook"
+        }
+    }
+}
